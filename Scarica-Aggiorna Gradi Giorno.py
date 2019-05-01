@@ -252,6 +252,15 @@ def checkfiles(i):
         os.rename(new_file, old_file)
     return(new_file, old_file)
 
+# Function that checks for folder existence
+def checkfolder():
+    if not os.path.isdir(rel_path):
+        root = tk.Tk()
+        root.withdraw()
+        tmb.showwarning(title="Attenzione!",
+                        message="Non è presente la cartella Dati allo stesso livello dello script. \n Procedura terminata")
+        raise SystemExit()
+
 # Function that checks for missing days in each month
 def checkdays(dataframe, month, year):
     days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
